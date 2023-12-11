@@ -1,19 +1,21 @@
 # TP-Link_Tapo_Hack
 Deceiving the Tapo app by impersonating a TP-Link device
 
-REPORT
-Authors
-Vincenzo De Angelis (vincenzo.deangelis@unirc.it) and Sara Lazzaro (sara.lazzaro@unirc.it).
-Researchers at the University of Reggio Calabria.
-Objective
+# Authors
+Vincenzo De Angelis (vincenzo.deangelis@unical.it), assistant professor at the University of Calabria & Sara Lazzaro (sara.lazzaro@unirc.it), researcher at the University of Reggio Calabria.
+
+# Objective
 Bypassing the authentication mechanism of the TP-Link Tapo app to obtain the victim’s password of their Tapo App in plaintext.
-Conditions of the attack
+
+# Conditions of the attack
 1)	The attacker is in the same network of the Tapo app (reachable through UDP broadcast)
 and one of the following two:
 2a) The attacker knows the username (email address) of the victim in the Tapo app OR
-2b) A TP-Link device is present in the network of the attacker and the Tapo app 
-APP version
+2b) A TP-Link device is present in the network of the attacker and the Tapo app
+
+# APP version
 Tapo Version 3.1.315
+
 Overview of the authentication mechanism of the Tapo App
 The Tapo app uses the following discovery and authentication mechanism (with some devices). First, the app broadcast (255.255.255.255) in UDP a discovery message. A TP-Link device connected to the network responds to the application by providing some information including its IP address. The app starts a handshake mechanism by contacting the device through HTTP and providing its public key. The device answers by encrypting a symmetric key with such a public key. The app provides the credentials (username and password) encrypted with the symmetric key.
 Overview of the attack
