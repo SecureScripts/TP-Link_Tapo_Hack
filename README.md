@@ -8,8 +8,8 @@ Vincenzo De Angelis (vincenzo.deangelis@unical.it), assistant professor at the U
 Bypassing the authentication mechanism of the TP-Link Tapo app to obtain the victim’s password of their Tapo App in plaintext.
 
 ## Conditions of the attack
-1.	The attacker is in the same network of the Tapo app (reachable through UDP broadcast)
-and one of the following two: <br>
+1.	The attacker is in the same network of the Tapo app (reachable through UDP broadcast) <br>
+2. and one of the following two: <br>
 2a. The attacker knows the username (email address) of the victim in the Tapo app OR <br>
 2b. A TP-Link device is present in the network of the attacker and the Tapo app
 
