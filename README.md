@@ -97,7 +97,7 @@ stolenpassword=Vincenzo&Sara
 3. Wait for the user to open the home of the Tapo App and obtain the password in the console of HTTPHandshakeImpersonation.py . <br>
 A proof of the attack is available at the following video [![PoC](https://github.com/SecureScripts/TP-Link_Tapo_Hack/blob/main/preview.png)](https://www.youtube.com/watch?v=RVGytQduaqw)
 
-[![Anteprima del mio video](https://www.youtube.com/watch?v=RVGytQduaqw/0.jpg)](https://www.youtube.com/watch?v=RVGytQduaqw)
+[![Anteprima del mio video](https://img.youtube.com/vi/RVGytQduaqw/0.jpg)](https://www.youtube.com/watch?v=RVGytQduaqw)
 
 
 
