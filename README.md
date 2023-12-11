@@ -7,33 +7,29 @@ Vincenzo De Angelis (vincenzo.deangelis@unical.it), assistant professor at the U
 # Objective
 Bypassing the authentication mechanism of the TP-Link Tapo app to obtain the victim’s password of their Tapo App in plaintext.
 
-# Conditions of the attack
-1)	The attacker is in the same network of the Tapo app (reachable through UDP broadcast)
+## Conditions of the attack
+1.	The attacker is in the same network of the Tapo app (reachable through UDP broadcast)
 and one of the following two:
-2a) The attacker knows the username (email address) of the victim in the Tapo app OR
-2b) A TP-Link device is present in the network of the attacker and the Tapo app
+2a. The attacker knows the username (email address) of the victim in the Tapo app OR
+2b. A TP-Link device is present in the network of the attacker and the Tapo app
 
-# APP version
+## APP version
 Tapo Version 3.1.315
 
-Overview of the authentication mechanism of the Tapo App
+## Overview of the authentication mechanism of the Tapo App
 The Tapo app uses the following discovery and authentication mechanism (with some devices). First, the app broadcast (255.255.255.255) in UDP a discovery message. A TP-Link device connected to the network responds to the application by providing some information including its IP address. The app starts a handshake mechanism by contacting the device through HTTP and providing its public key. The device answers by encrypting a symmetric key with such a public key. The app provides the credentials (username and password) encrypted with the symmetric key.
 Overview of the attack
 The attacker simulates a TP-Link device and when receives the HTTP handshake, it encrypts its own symmetric key. Then, it receives the encrypted credentials and can decrypt them.
 
-
-
-
-
-Detailed steps of the attack
-
+## Detailed steps of the attack
 Step 1-OWNER parameter discover
 The first step consists in finding the OWNER parameter used by the Tapo App before starting the HTTP handshake.
 If the attacker knows the email address of the victim in the Tapo App (Condition 2a), the OWNER parameter is simply the MD5 digest of this email address and can be computed in Python as follows (OWNERFromMD5.py):
-import hashlib
+
+`import hashlib
 TapoEmailVictim=b"EMAIL_ADDRESS_VICTIM"
 OWNER = hashlib.md5(TapoEmailVictim).hexdigest().upper()
-print(OWNER)
+print(OWNER)`
 
 In the case the attacker does not know the email of the victim (Condition 2b), the OWNER parameter can be discovered by leveraging the TP-Link devices connected to the network. Indeed, they include this parameter in the plaintext answer to the broadcast request of the Tapo App. 
 Then, the attack consists in simulating the UDP broadcast request of the Tapo-App to obtain the OWNER parameter from a TP-Link device. 
