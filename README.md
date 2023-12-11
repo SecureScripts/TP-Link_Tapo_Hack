@@ -98,7 +98,8 @@ stolenpassword=Vincenzo&Sara
 1. Lunch either OWNERFromMD5.py or OWNERFromDevice.py to obtain the OWNER parameter. 
 2. Lunch HTTPHandshakeImpersonation.py and UDPImpersonation.py (lunch a HTTP and UDP server simultaneously) 
 3. Wait for the user to open the home of the Tapo App and obtain the password in the console of HTTPHandshakeImpersonation.py . <br>
-A proof of the attack is available at the following video [![Anteprima del mio video](https://img.youtube.com/vi/RVGytQduaqw/0.jpg)](https://www.youtube.com/watch?v=RVGytQduaqw)
+A proof of the attack is available at the following video <br>
+[![Anteprima del mio video](https://img.youtube.com/vi/RVGytQduaqw/0.jpg)](https://www.youtube.com/watch?v=RVGytQduaqw)
 
 
 
