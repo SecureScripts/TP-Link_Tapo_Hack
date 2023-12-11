@@ -1,5 +1,5 @@
 # TP-Link_Tapo_Hack
-Deceiving the Tapo app by impersonating a TP-Link device
+Deceiving the Tapo app by impersonating a TP-Link device.
 
 # Authors
 Vincenzo De Angelis (vincenzo.deangelis@unical.it), assistant professor at the University of Calabria & Sara Lazzaro (sara.lazzaro@unirc.it), researcher at the University of Reggio Calabria.
