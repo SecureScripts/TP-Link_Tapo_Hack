@@ -97,6 +97,9 @@ stolenpassword=Vincenzo&Sara
 3. Wait for the user to open the home of the Tapo App and obtain the password in the console of HTTPHandshakeImpersonation.py . <br>
 A proof of the attack is available at the following video [![PoC](https://github.com/SecureScripts/TP-Link_Tapo_Hack/blob/main/preview.png)](https://www.youtube.com/watch?v=RVGytQduaqw)
 
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=RVGytQduaqw" frameborder="0" allowfullscreen></iframe>
+
+
 
 ## Observations
 This attack is not a vulnerability of a specific device (it can be conducted even in the case no device is present in the network) but it concerns the authentication protocol the Tapo App uses. To solve the problem, we suggest removing the use of local traffic and relying on the cloud through TLS messages.
