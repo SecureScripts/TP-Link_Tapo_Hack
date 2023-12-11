@@ -27,7 +27,7 @@ Step 1-OWNER parameter discover
 The first step consists in finding the OWNER parameter used by the Tapo App before starting the HTTP handshake.
 If the attacker knows the email address of the victim in the Tapo App (Condition 2a), the OWNER parameter is simply the MD5 digest of this email address and can be computed in Python as follows (OWNERFromMD5.py):
 
-```
+```python
 import hashlib
 TapoEmailVictim=b"EMAIL_ADDRESS_VICTIM"
 OWNER = hashlib.md5(TapoEmailVictim).hexdigest().upper()
